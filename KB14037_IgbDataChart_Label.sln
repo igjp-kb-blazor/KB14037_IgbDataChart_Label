@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KB14037_IgbDataChart_Label", "KB14037_IgbDataChart_Label.csproj", "{2DCC4E67-D307-4620-897A-0063E097D239}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2DCC4E67-D307-4620-897A-0063E097D239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DCC4E67-D307-4620-897A-0063E097D239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DCC4E67-D307-4620-897A-0063E097D239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DCC4E67-D307-4620-897A-0063E097D239}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {134EC2C8-9D33-4684-A08D-5671A04FAB48}
+	EndGlobalSection
+EndGlobal

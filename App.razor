@@ -1,0 +1,80 @@
+﻿<div style="max-width:700px; padding:24px; margin:auto; display:flex; flex-direction:column; gap:12px;">
+    <IgbLegend @ref="_legend"
+               Orientation="LegendOrientation.Horizontal">
+    </IgbLegend>
+    <IgbDataChart Width="600px"
+                  Height="260px" 
+                  Legend="_legend">        
+        <IgbCategoryXAxis Name="xAxis"
+                          DataSource="_data"
+                          Label="@(nameof(SampleData.Category))">
+        </IgbCategoryXAxis>
+
+        <IgbNumericYAxis Name="yAxis"
+                         Title="売上"
+                         MinimumValue="0"
+                         LabelFormat="{0}">
+            <IgbNumberFormatSpecifier  MaximumSignificantDigits="3">
+            </IgbNumberFormatSpecifier>
+        </IgbNumericYAxis>
+        <IgbStackedColumnSeries Title="Sample1"
+                                DataSource="_data"
+                                XAxisName="xAxis"
+                                YAxisName="yAxis">
+            <IgbStackedFragmentSeries Name="productA"
+                                      @ref="productA"
+                                      Title="@("商品 A")"
+                                      ValueMemberPath="ProductA">
+            </IgbStackedFragmentSeries>
+            <IgbStackedFragmentSeries Name="productB"
+                                      @ref="productB"
+                                      Title="@("商品 B")"
+                                      ValueMemberPath="ProductB">
+            </IgbStackedFragmentSeries>
+            <IgbStackedFragmentSeries Name="productC"
+                                      @ref="productD"
+                                      Title="@("商品 C")"
+                                      ValueMemberPath="ProductC">
+            </IgbStackedFragmentSeries>
+            <IgbStackedFragmentSeries Name="productD"
+                                      @ref="productD"
+                                      Title="@("商品 D")"
+                                      ValueMemberPath="ProductD">
+            </IgbStackedFragmentSeries>
+        </IgbStackedColumnSeries>
+    </IgbDataChart>
+</div>
+
+@code
+{
+    private IgbStackedFragmentSeries? productA;
+    private IgbStackedFragmentSeries? productB;
+    private IgbStackedFragmentSeries? productC;
+    private IgbStackedFragmentSeries? productD;
+    private IgbLegend? _legend;
+
+    public class SampleData
+    {
+        public int ProductA { get; set; }
+        public int ProductB { get; set; }
+        public int ProductC { get; set; }
+        public int ProductD { get; set; }
+        public string? Category { get; set; }
+        public string? Month { get; set; }
+    }
+
+    private readonly IEnumerable<SampleData> _data = new SampleData[] {
+        new() { Category = "A 店", ProductA = 9000000, ProductB = 4000000 , ProductC = 2000000, ProductD = 1000000 },
+        new() { Category = "B 店", ProductA = 2000000, ProductB = 8000000 , ProductC = 9000000, ProductD = 3000000 },
+        new() { Category = "C 店", ProductA = 5000000, ProductB = 2000000 , ProductC = 3000000, ProductD = 2000000 },
+        new() { Category = "D 店", ProductA = 6000000, ProductB = 1000000 , ProductC = 6000000, ProductD = 1000000},
+        new() { Category = "E 店", ProductA = 5000000, ProductB = 2000000 , ProductC = 3000000, ProductD = 2000000 }, 
+    };
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            StateHasChanged();
+        }
+    }
+}
